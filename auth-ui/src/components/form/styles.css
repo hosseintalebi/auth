@@ -1,0 +1,14 @@
+:local(.textInput) {
+  width: 100%;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+  font-size: 18px;
+  padding: 10px 10px;
+  margin: 10px 5px 20px;
+}
+
+:local(.textInput:focus) {
+  outline-width: 0;
+  border-bottom: solid 2px #3498db;
+}
