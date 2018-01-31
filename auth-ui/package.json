@@ -2,7 +2,7 @@
   "name": "auth-ui",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hosseintalebi.github.io/auth"
+  "homepage": "https://hosseintalebi.github.io/auth",
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
