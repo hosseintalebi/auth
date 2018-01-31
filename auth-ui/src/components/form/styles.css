@@ -1,5 +1,4 @@
 :local(.textInput) {
-  width: 100%;
   border: none;
   border-bottom: solid 2px #c9c9c9;
   transition: border 0.3s;
@@ -11,4 +10,18 @@
 :local(.textInput:focus) {
   outline-width: 0;
   border-bottom: solid 2px #3498db;
+}
+
+:local(.button) {
+  padding: 10px;
+  background: rgb(0, 191, 216);
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+:local(.button:hover) {
+  padding: 10px;
+  background: rgb(0, 160, 178);
 }
