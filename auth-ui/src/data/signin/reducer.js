@@ -1,4 +1,4 @@
-import createReducer from '../../utils/createReducer'
+import createReducer from 'utils/createReducer'
 import { USERNAME_CHANGE, PASSWORD_CHANGE, SING_IN } from './constants'
 
 export const initialState = {
