@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 // containers
-import siginContainer from 'containers/sigin/siginContainer'
+import signinContainer from 'containers/signin/signinContainer'
 
 // components
-import Input from 'components/form/Input'
+import { Input, Button } from 'components/form/'
 
 // styles
 import styles from './styles.css'
@@ -14,6 +14,7 @@ class Signin extends Component {
     super()
     this.onChangeUsername = this.onChangeUsername.bind(this)
     this.onChangePassowrd = this.onChangePassowrd.bind(this)
+    this.onClick = this.onClick.bind(this)
   }
   onChangeUsername (value) {
     const { onChangeUsername } = this.props
@@ -23,12 +24,16 @@ class Signin extends Component {
     const { onChangePassowrd } = this.props
     onChangePassowrd({value})
   }
+  onClick () {
+    const { onSignin } = this.props
+    onSignin()
+  }
   render () {
     const { username, password } = this.props
     return (
       <div className={styles.signinContainer}>
         <div className={styles.header}>
-          Login
+          Sign In
         </div>
         <div className={styles.formContainer}>
           <Input
@@ -43,10 +48,14 @@ class Signin extends Component {
             onChange={this.onChangePassowrd}
             placeholder={'Password'}
           />
+          <Button text='Sign In' onClick={this.onClick} />
+          <div>
+            Do not have an account? Click here to <Link to='/signup'>sign up</Link>.
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default siginContainer(Signin)
+export default signinContainer(Signin)
