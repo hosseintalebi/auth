@@ -1,15 +1,59 @@
-:local(.textInput) {
+:local(.inputContainer) {
+  margin: 10px 20px;
+}
+
+:local(.input) {
   border: none;
   border-bottom: solid 2px #c9c9c9;
   transition: border 0.3s;
   font-size: 18px;
-  padding: 10px 10px;
-  margin: 10px 5px 20px;
+  padding: 10px 0px;
+  width: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-:local(.textInput:focus) {
+:local(.input:focus) {
   outline-width: 0;
   border-bottom: solid 2px #3498db;
+}
+
+:local(.placeholder) {
+  position: relative;
+  top: 35px;
+  z-index: -1;
+  transition: top 0.4s;
+  transition: color 0.4;
+  color: #888;
+}
+
+:local(.placeholderTop) {
+  position: relative;
+  top: 0px;
+  transition: top 0.4s;
+  transition: color 0.4;
+  z-index: -1;
+  color: #555;
+}
+
+:local(.inputWithError) {
+  border: none;
+  border-bottom: solid 2px #ff5961;
+  transition: border 0.3s;
+  font-size: 18px;
+  padding: 10px 0px;
+  width: 100%;
+  margin-bottom: 5px;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+:local(.inputWithError:focus) {
+  outline-width: 0;
+}
+
+:local(.inputError) {
+  color: #ff5961;
 }
 
 :local(.button) {

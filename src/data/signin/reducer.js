@@ -1,15 +1,25 @@
+import _ from 'lodash'
 import createReducer from 'utils/createReducer'
-import { USERNAME_CHANGE, PASSWORD_CHANGE, SING_IN } from './constants'
+import { validateUsername, validatePassword } from 'utils/validators'
+import { USERNAME_CHANGE, PASSWORD_CHANGE, SING_IN, Errors } from './constants'
 
 export const initialState = {
   username: '',
   password: '',
+  errors: {
+    [Errors.Username]: validateUsername(''),
+    [Errors.Password]: validatePassword(''),
+  },
 }
 
 function usernameChange(state, payload) {
   return {
     ...state,
     username: payload.value,
+    errors: {
+      ...state.errors,
+      [Errors.Username]: validateUsername(payload.value),
+    },
   }
 }
 
@@ -17,11 +27,18 @@ function passwordChange(state, payload) {
   return {
     ...state,
     password: payload.value,
+    errors: {
+      ...state.errors,
+      [Errors.Password]: validatePassword(payload.value),
+    },
   }
 }
 
 function signIn(state, payload) {
-  return state
+  return {
+    ...state,
+    submitted: true,
+  }
 }
 
 export default createReducer(initialState, {

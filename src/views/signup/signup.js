@@ -7,6 +7,9 @@ import signupContainer from 'containers/signup/signupContainer'
 // components
 import { Input, Button } from 'components/form/'
 
+// constants
+import { Errors } from 'data/signup/constants'
+
 // styles
 import styles from './styles.css'
 
@@ -53,8 +56,8 @@ class Signup extends Component {
   }
 
   onClick() {
-    const { signup } = this.props
-    signup()
+    const { onSignup } = this.props
+    onSignup()
   }
 
   render() {
@@ -65,6 +68,8 @@ class Signup extends Component {
       email,
       password,
       repeatPassword,
+      errors,
+      submitted,
     } = this.props
     return (
       <div className={styles.signupContainer}>
@@ -75,36 +80,48 @@ class Signup extends Component {
             value={firstname}
             onChange={this.onChangeFirstName}
             placeholder={'First name'}
+            error={errors[Errors.Firstname]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Text}
             value={lastname}
             onChange={this.onChangeLastName}
             placeholder={'Last name'}
+            error={errors[Errors.Lastname]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Text}
             value={username}
             onChange={this.onChangeUsername}
             placeholder={'Username'}
+            error={errors[Errors.Username]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Text}
             value={email}
             onChange={this.onChangeEmail}
             placeholder={'Email'}
+            error={errors[Errors.Email]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Password}
             value={password}
             onChange={this.onChangePassowrd}
             placeholder={'Password'}
+            error={errors[Errors.Password]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Password}
             value={repeatPassword}
             onChange={this.onChangeRepeatPassword}
             placeholder={'Repeat password'}
+            error={errors[Errors.RepeatPassword]}
+            showError={submitted}
           />
           <Button text="Sign Up" onClick={this.onClick} />
           <div>

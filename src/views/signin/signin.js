@@ -6,6 +6,8 @@ import signinContainer from 'containers/signin/signinContainer'
 // components
 import { Input, Button } from 'components/form/'
 
+// constants
+import { Errors } from 'data/signin/constants'
 // styles
 import styles from './styles.css'
 
@@ -29,7 +31,7 @@ class Signin extends Component {
     onSignin()
   }
   render() {
-    const { username, password } = this.props
+    const { username, password, errors, submitted } = this.props
     return (
       <div className={styles.signinContainer}>
         <div className={styles.header}>Sign In</div>
@@ -39,12 +41,16 @@ class Signin extends Component {
             value={username}
             onChange={this.onChangeUsername}
             placeholder={'Username'}
+            error={errors[Errors.Username]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Password}
             value={password}
             onChange={this.onChangePassowrd}
             placeholder={'Password'}
+            error={errors[Errors.Password]}
+            showError={submitted}
           />
           <Button text="Sign In" onClick={this.onClick} />
           <div>

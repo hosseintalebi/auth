@@ -19,6 +19,8 @@ import username$ from 'data/signup/selectors/signupUsername'
 import email$ from 'data/signup/selectors/signupEmail'
 import password$ from 'data/signup/selectors/signupPassword'
 import repeatPassword$ from 'data/signup/selectors/signupRepeatPassport'
+import errors$ from 'data/signup/selectors/signupErrors'
+import submitted$ from 'data/signup/selectors/signupSubmitted'
 
 const mapStateToProps = (state, ownProps) => ({
   firstname: firstname$(state),
@@ -27,6 +29,8 @@ const mapStateToProps = (state, ownProps) => ({
   email: email$(state),
   password: password$(state),
   repeatPassword: repeatPassword$(state),
+  errors: errors$(state),
+  submitted: submitted$(state),
 })
 
 const mapDispatchToProps = {

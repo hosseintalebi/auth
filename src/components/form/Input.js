@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
 
 import styles from './styles.css'
 
@@ -13,16 +14,22 @@ export default class Input extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   render() {
-    const { value, placeholder, type } = this.props
+    debugger
+    const { value, placeholder, type, error, showError } = this.props
+    const inputStyle = showError && error ? styles.inputWithError : styles.input
+    const placeholderStyle = _.size(value) ? styles.placeholderTop : styles.placeholder
     return (
-      <input
-        className={styles.textInput}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={this.onChange}
-        onKeyPress={this.handleKeyPress}
-      />
+      <div className={styles.inputContainer}>
+        <div className={placeholderStyle}>{placeholder}</div>
+        <input
+          className={inputStyle}
+          type={type}
+          value={value}
+          onChange={this.onChange}
+          onKeyPress={this.handleKeyPress}
+        />
+        {showError && error && <div className={styles.inputError}>{error}</div>}
+      </div>
     )
   }
 

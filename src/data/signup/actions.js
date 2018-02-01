@@ -50,9 +50,8 @@ export function onChangeRepeatPassword({ value }) {
   }
 }
 
-export function onSignup({ value }) {
+export function onSignup() {
   return {
     type: SING_UP,
-    payload: { value },
   }
 }
