@@ -6,6 +6,8 @@ import signinContainer from 'containers/signin/signinContainer'
 // components
 import { Input, Button } from 'components/form/'
 
+// constants
+import { Errors } from 'data/signin/constants'
 // styles
 import styles from './styles.css'
 
@@ -16,41 +18,44 @@ class Signin extends Component {
     this.onChangePassowrd = this.onChangePassowrd.bind(this)
     this.onClick = this.onClick.bind(this)
   }
-  onChangeUsername (value) {
+  onChangeUsername(value) {
     const { onChangeUsername } = this.props
-    onChangeUsername({value})
+    onChangeUsername({ value })
   }
-  onChangePassowrd (value) {
+  onChangePassowrd(value) {
     const { onChangePassowrd } = this.props
-    onChangePassowrd({value})
+    onChangePassowrd({ value })
   }
-  onClick () {
+  onClick() {
     const { onSignin } = this.props
     onSignin()
   }
-  render () {
-    const { username, password } = this.props
+  render() {
+    const { username, password, errors, submitted } = this.props
     return (
       <div className={styles.signinContainer}>
-        <div className={styles.header}>
-          Sign In
-        </div>
+        <div className={styles.header}>Sign In</div>
         <div className={styles.formContainer}>
           <Input
             type={Input.Types.Text}
             value={username}
             onChange={this.onChangeUsername}
             placeholder={'Username'}
+            error={errors[Errors.Username]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Password}
             value={password}
             onChange={this.onChangePassowrd}
             placeholder={'Password'}
+            error={errors[Errors.Password]}
+            showError={submitted}
           />
-          <Button text='Sign In' onClick={this.onClick} />
+          <Button text="Sign In" onClick={this.onClick} />
           <div>
-            Do not have an account? Click here to <Link to='/signup'>sign up</Link>.
+            Do not have an account? Click here to{' '}
+            <Link to="/signup">sign up</Link>.
           </div>
         </div>
       </div>

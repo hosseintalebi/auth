@@ -6,14 +6,11 @@ import { BrowserRouter } from 'react-router-dom'
 import logger from 'redux-logger'
 import reducers from './data/reducers'
 import App from './App'
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker'
 
 import './index.css'
 
-let store = createStore(
-  reducers,
-  applyMiddleware(logger)
-)
+let store = createStore(reducers, applyMiddleware(logger))
 
 render(
   <Provider store={store}>
@@ -21,6 +18,6 @@ render(
       <App />
     </BrowserRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 )
-registerServiceWorker();
+registerServiceWorker()

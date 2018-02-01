@@ -7,6 +7,9 @@ import signupContainer from 'containers/signup/signupContainer'
 // components
 import { Input, Button } from 'components/form/'
 
+// constants
+import { Errors } from 'data/signup/constants'
+
 // styles
 import styles from './styles.css'
 
@@ -22,88 +25,108 @@ class Signup extends Component {
     this.onClick = this.onClick.bind(this)
   }
 
-  onChangeFirstName (value) {
+  onChangeFirstName(value) {
     const { onChangeFirstName } = this.props
-    onChangeFirstName({value})
+    onChangeFirstName({ value })
   }
 
-  onChangeLastName (value) {
+  onChangeLastName(value) {
     const { onChangeLastName } = this.props
-    onChangeLastName({value})
+    onChangeLastName({ value })
   }
 
-  onChangeUsername (value) {
+  onChangeUsername(value) {
     const { onChangeUsername } = this.props
-    onChangeUsername({value})
+    onChangeUsername({ value })
   }
 
-  onChangeEmail (value) {
+  onChangeEmail(value) {
     const { onChangeEmail } = this.props
-    onChangeEmail({value})
+    onChangeEmail({ value })
   }
 
-  onChangePassowrd (value) {
+  onChangePassowrd(value) {
     const { onChangePassowrd } = this.props
-    onChangePassowrd({value})
+    onChangePassowrd({ value })
   }
 
   onChangeRepeatPassword(value) {
     const { onChangeRepeatPassword } = this.props
-    onChangeRepeatPassword({value})
+    onChangeRepeatPassword({ value })
   }
 
-  onClick () {
-    const { signup } = this.props
-    signup()
+  onClick() {
+    const { onSignup } = this.props
+    onSignup()
   }
 
-  render () {
-    const { firstname, lastname, username, email, password, repeatPassword } = this.props
+  render() {
+    const {
+      firstname,
+      lastname,
+      username,
+      email,
+      password,
+      repeatPassword,
+      errors,
+      submitted,
+    } = this.props
     return (
       <div className={styles.signupContainer}>
-        <div className={styles.header}>
-          Sign Up
-        </div>
+        <div className={styles.header}>Sign Up</div>
         <div className={styles.formContainer}>
           <Input
             type={Input.Types.Text}
             value={firstname}
             onChange={this.onChangeFirstName}
             placeholder={'First name'}
+            error={errors[Errors.Firstname]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Text}
             value={lastname}
             onChange={this.onChangeLastName}
             placeholder={'Last name'}
+            error={errors[Errors.Lastname]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Text}
             value={username}
             onChange={this.onChangeUsername}
             placeholder={'Username'}
+            error={errors[Errors.Username]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Text}
             value={email}
             onChange={this.onChangeEmail}
             placeholder={'Email'}
+            error={errors[Errors.Email]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Password}
             value={password}
             onChange={this.onChangePassowrd}
             placeholder={'Password'}
+            error={errors[Errors.Password]}
+            showError={submitted}
           />
           <Input
             type={Input.Types.Password}
             value={repeatPassword}
             onChange={this.onChangeRepeatPassword}
             placeholder={'Repeat password'}
+            error={errors[Errors.RepeatPassword]}
+            showError={submitted}
           />
-          <Button text='Sign Up' onClick={this.onClick} />
+          <Button text="Sign Up" onClick={this.onClick} />
           <div>
-            Already have an account? Click here to <Link to='/signin'>sign in</Link>.
+            Already have an account? Click here to{' '}
+            <Link to="/signin">sign in</Link>.
           </div>
         </div>
       </div>

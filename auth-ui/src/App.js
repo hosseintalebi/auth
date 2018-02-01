@@ -7,21 +7,12 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route
-          path='/signin'
-          component={Signin}
-        />
-        <Route
-          path='/signup'
-          component={Signup}
-        />
-        <Route
-          path='/'
-          component={Signin}
-        />
+        <Route path="/signin" component={Signin} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/" component={Signin} />
       </Switch>
     )
   }
 }
 
-export default App;
+export default App
