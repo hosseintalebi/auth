@@ -6,9 +6,9 @@ export default class Button extends Component {
   render() {
     const { text, onClick } = this.props
     return (
-      <div className={styles.button} onClick={onClick}>
+      <button className={styles.button} onClick={onClick}>
         {text}
-      </div>
+      </button>
     )
   }
 }

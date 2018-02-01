@@ -1,9 +1,10 @@
 {
-  "name": "auth-ui",
+  "name": "auth",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://hosseintalebi.github.io/auth",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -17,7 +18,6 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "push": "git subtree push --prefix auth-ui/build origin gh-pages",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

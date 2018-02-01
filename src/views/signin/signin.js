@@ -17,6 +17,7 @@ class Signin extends Component {
     this.onChangeUsername = this.onChangeUsername.bind(this)
     this.onChangePassowrd = this.onChangePassowrd.bind(this)
     this.onClick = this.onClick.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
   onChangeUsername(value) {
     const { onChangeUsername } = this.props
@@ -30,34 +31,40 @@ class Signin extends Component {
     const { onSignin } = this.props
     onSignin()
   }
+  onSubmit(event) {
+    event.preventDefault()
+    this.onClick()
+  }
   render() {
     const { username, password, errors, submitted } = this.props
     return (
       <div className={styles.signinContainer}>
         <div className={styles.header}>Sign In</div>
-        <div className={styles.formContainer}>
-          <Input
-            type={Input.Types.Text}
-            value={username}
-            onChange={this.onChangeUsername}
-            placeholder={'Username'}
-            error={errors[Errors.Username]}
-            showError={submitted}
-          />
-          <Input
-            type={Input.Types.Password}
-            value={password}
-            onChange={this.onChangePassowrd}
-            placeholder={'Password'}
-            error={errors[Errors.Password]}
-            showError={submitted}
-          />
-          <Button text="Sign In" onClick={this.onClick} />
-          <div>
-            Do not have an account? Click here to{' '}
-            <Link to="/signup">sign up</Link>.
+        <form onSubmit={this.onSubmit}>
+          <div className={styles.formContent}>
+            <Input
+              type={Input.Types.Text}
+              value={username}
+              onChange={this.onChangeUsername}
+              placeholder={'Username'}
+              error={errors[Errors.Username]}
+              showError={submitted}
+            />
+            <Input
+              type={Input.Types.Password}
+              value={password}
+              onChange={this.onChangePassowrd}
+              placeholder={'Password'}
+              error={errors[Errors.Password]}
+              showError={submitted}
+            />
+            <Button text="Sign In" onClick={this.onClick} />
+            <div>
+              Do not have an account? Click here to{' '}
+              <Link to="/signup">sign up</Link>.
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     )
   }
