@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
 
 import styles from './styles.css'
 
@@ -16,12 +17,13 @@ export default class Input extends Component {
     debugger
     const { value, placeholder, type, error, showError } = this.props
     const inputStyle = showError && error ? styles.inputWithError : styles.input
+    const placeholderStyle = _.size(value) ? styles.placeholderTop : styles.placeholder
     return (
       <div className={styles.inputContainer}>
+        <div className={placeholderStyle}>{placeholder}</div>
         <input
           className={inputStyle}
           type={type}
-          placeholder={placeholder}
           value={value}
           onChange={this.onChange}
           onKeyPress={this.handleKeyPress}
