@@ -1,3 +1,20 @@
+##Authentication
+
+You can access the demo here:
+[DEMO](https://hosseintalebi.github.io/auth/)
+
+#Technologies used:
+
+`Front end`:
+- React
+- Redux
+- Redux Sagas
+
+`Backend`:
+- Node.js
+- MongoDB
+- Express.js
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
