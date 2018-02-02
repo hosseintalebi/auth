@@ -1,16 +1,16 @@
-##Authentication
+## Authentication
 
 You can access the demo here:
 [DEMO](https://hosseintalebi.github.io/auth/)
 
-#Technologies used:
+### Technologies used:
 
-`Front end`:
+#### Front end:
 - React
 - Redux
 - Redux Sagas
 
-`Backend`:
+#### Backend:
 - Node.js
 - MongoDB
 - Express.js
