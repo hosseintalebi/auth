@@ -7,9 +7,9 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/signin" component={Signin} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/" component={Signin} />
+        <Route path={`${process.env.PUBLIC_URL}/signin`} component={Signin} />
+        <Route path={`${process.env.PUBLIC_URL}/signup`} component={Signup} />
+        <Route path={`${process.env.PUBLIC_URL}/`} component={Signin} />
       </Switch>
     )
   }
