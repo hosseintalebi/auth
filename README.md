@@ -1,7 +1,8 @@
 ## Authentication
 
 You can access the demo here:
-[DEMO](https://hosseintalebi.github.io/auth/)
+
+[DEMO](https://fierce-hamlet-20014.herokuapp.com/)
 
 ### Technologies used:
 
@@ -14,3 +15,10 @@ You can access the demo here:
 - Node.js
 - MongoDB
 - Express.js
+
+
+### Resources:
+
+How to deploy express and react app to heroku:
+
+[https://daveceddia.com/create-react-app-express-production/]

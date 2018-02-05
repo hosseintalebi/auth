@@ -65,6 +65,7 @@
   margin: 20px;
   cursor: pointer;
   font-size: 0.9em;
+  border: none;
 }
 :local(.button:hover) {
   padding: 10px;
