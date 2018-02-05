@@ -1,8 +1,7 @@
 {
-  "name": "auth",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hosseintalebi.github.io/auth",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
