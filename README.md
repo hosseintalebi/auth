@@ -21,4 +21,4 @@ You can access the demo here:
 
 How to deploy express and react app to heroku:
 
-[https://daveceddia.com/create-react-app-express-production/]
+https://daveceddia.com/create-react-app-express-production/
