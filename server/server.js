@@ -5,8 +5,9 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 
-var { mongoose } = require('./db/mongoose')
-var { User } = require('./models/user')
+const { mongoose } = require('./db/mongoose')
+const { User } = require('./models/user')
+const { authenticate } = require('./middleware/authenticate') 
 
 const app = express()
 
@@ -26,6 +27,10 @@ app.post('/users', (req, res) => {
   })
 })
 
+
+app.get('/users/me', authenticate, (req, res) => {
+  res.send(req.user)
+})
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../', './client/build/index.html'))
