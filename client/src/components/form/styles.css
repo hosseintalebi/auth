@@ -58,7 +58,7 @@
 
 :local(.button) {
   padding: 10px;
-  background: rgb(0, 191, 216);
+  background: #00b593;
   color: white;
   text-align: center;
   border-radius: 20px;
@@ -69,11 +69,11 @@
 }
 :local(.button:hover) {
   padding: 10px;
-  background: rgb(0, 160, 178);
+  background: #009675;
 }
 
 :local(.button:focus) {
   outline-width: 0;
   padding: 10px;
-  background: rgb(0, 160, 178);
+  background: #009675;
 }

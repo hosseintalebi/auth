@@ -1,7 +1,6 @@
 import {
   FIRSTNAME_CHANGE,
   LASTNAME_CHANGE,
-  USERNAME_CHANGE,
   EMAIL_CHANGE,
   PASSWORD_CHANGE,
   REPEATE_PASSWORD_CHANGE,
@@ -18,13 +17,6 @@ export function onChangeFirstName({ value }) {
 export function onChangeLastName({ value }) {
   return {
     type: LASTNAME_CHANGE,
-    payload: { value },
-  }
-}
-
-export function onChangeUsername({ value }) {
-  return {
-    type: USERNAME_CHANGE,
     payload: { value },
   }
 }

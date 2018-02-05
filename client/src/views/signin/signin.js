@@ -14,14 +14,14 @@ import styles from './styles.css'
 class Signin extends Component {
   constructor() {
     super()
-    this.onChangeUsername = this.onChangeUsername.bind(this)
+    this.onChangeEmail = this.onChangeEmail.bind(this)
     this.onChangePassowrd = this.onChangePassowrd.bind(this)
     this.onClick = this.onClick.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
-  onChangeUsername(value) {
-    const { onChangeUsername } = this.props
-    onChangeUsername({ value })
+  onChangeEmail(value) {
+    const { onChangeEmail } = this.props
+    onChangeEmail({ value })
   }
   onChangePassowrd(value) {
     const { onChangePassowrd } = this.props
@@ -36,7 +36,7 @@ class Signin extends Component {
     this.onClick()
   }
   render() {
-    const { username, password, errors, submitted } = this.props
+    const { email, password, errors, submitted } = this.props
     return (
       <div className={styles.signinContainer}>
         <div className={styles.header}>Sign In</div>
@@ -44,10 +44,10 @@ class Signin extends Component {
           <div className={styles.formContent}>
             <Input
               type={Input.Types.Text}
-              value={username}
-              onChange={this.onChangeUsername}
-              placeholder={'Username'}
-              error={errors[Errors.Username]}
+              value={email}
+              onChange={this.onChangeEmail}
+              placeholder={'Email'}
+              error={errors[Errors.Email]}
               showError={submitted}
             />
             <Input

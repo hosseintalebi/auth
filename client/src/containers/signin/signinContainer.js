@@ -1,28 +1,29 @@
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 // actions
 import {
-  onChangeUsername,
+  onChangeEmail,
   onChangePassowrd,
   onSignin,
 } from 'data/signin/actions'
 
 // selectors
-import username$ from 'data/signin/selectors/signinUsername'
-import password$ from 'data/signin/selectors/signinPassword'
-import errors$ from 'data/signin/selectors/signinErrors'
-import submitted$ from 'data/signin/selectors/signinSubmitted'
+import {
+  email$,
+  password$,
+  errors$,
+  submitted$,
+} from 'data/signin/selectors'
 
 const mapStateToProps = (state, ownProps) => ({
-  username: username$(state),
+  email: email$(state),
   password: password$(state),
   errors: errors$(state),
   submitted: submitted$(state),
 })
 
 const mapDispatchToProps = {
-  onChangeUsername,
+  onChangeEmail,
   onChangePassowrd,
   onSignin,
 }

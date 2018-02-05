@@ -3,7 +3,6 @@ import _ from 'lodash'
 import {
   MIN_CHAR_FIRSTNAME,
   MIN_CHAR_LASTNAME,
-  MIN_CHAR_USERNAME,
   MIN_CHAR_PASSWORD,
 } from './constants'
 
@@ -21,15 +20,6 @@ export function validateLastname(lastname) {
     return 'This field is required.'
   } else if (_.size(lastname) < MIN_CHAR_LASTNAME) {
     return `Last name should at least have ${MIN_CHAR_LASTNAME} characters.`
-  }
-  return ''
-}
-
-export function validateUsername(username) {
-  if (_.size(username) === 0) {
-    return 'This field is required.'
-  } else if (_.size(username) < MIN_CHAR_USERNAME) {
-    return `Username should at least have ${MIN_CHAR_USERNAME} characters.`
   }
   return ''
 }

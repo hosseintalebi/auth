@@ -18,7 +18,6 @@ class Signup extends Component {
     super()
     this.onChangeFirstName = this.onChangeFirstName.bind(this)
     this.onChangeLastName = this.onChangeLastName.bind(this)
-    this.onChangeUsername = this.onChangeUsername.bind(this)
     this.onChangeEmail = this.onChangeEmail.bind(this)
     this.onChangePassowrd = this.onChangePassowrd.bind(this)
     this.onChangeRepeatPassword = this.onChangeRepeatPassword.bind(this)
@@ -34,11 +33,6 @@ class Signup extends Component {
   onChangeLastName(value) {
     const { onChangeLastName } = this.props
     onChangeLastName({ value })
-  }
-
-  onChangeUsername(value) {
-    const { onChangeUsername } = this.props
-    onChangeUsername({ value })
   }
 
   onChangeEmail(value) {
@@ -70,7 +64,6 @@ class Signup extends Component {
     const {
       firstname,
       lastname,
-      username,
       email,
       password,
       repeatPassword,
@@ -96,14 +89,6 @@ class Signup extends Component {
               onChange={this.onChangeLastName}
               placeholder={'Last name'}
               error={errors[Errors.Lastname]}
-              showError={submitted}
-            />
-            <Input
-              type={Input.Types.Text}
-              value={username}
-              onChange={this.onChangeUsername}
-              placeholder={'Username'}
-              error={errors[Errors.Username]}
               showError={submitted}
             />
             <Input

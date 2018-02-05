@@ -1,4 +1,4 @@
-import { PASSWORD_CHANGE, USERNAME_CHANGE, SING_IN } from './constants'
+import { PASSWORD_CHANGE, EMAIL_CHANGE, SING_IN } from './constants'
 
 export function onChangePassowrd({ value }) {
   return {
@@ -7,9 +7,9 @@ export function onChangePassowrd({ value }) {
   }
 }
 
-export function onChangeUsername({ value }) {
+export function onChangeEmail({ value }) {
   return {
-    type: USERNAME_CHANGE,
+    type: EMAIL_CHANGE,
     payload: { value },
   }
 }

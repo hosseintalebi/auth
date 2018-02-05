@@ -14,7 +14,7 @@
 
 :local(.header) {
   height: 50px;
-  background: rgb(0, 191, 216);
+  background: #009675;
   color: white;
   display: flex;
   justify-content: center;
