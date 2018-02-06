@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { call, put, select, takeLatest } from 'redux-saga/effects'
 import { credentials$, errors$ } from '../selectors'
 import signupApi from '../api/signupUser'
