@@ -1,3 +1,7 @@
+STILL IN PROGRESS
+
+This project is a part of a challenge to create well know functionality from scratch and learn new technologies.
+
 ## Authentication
 
 You can access the demo here:
