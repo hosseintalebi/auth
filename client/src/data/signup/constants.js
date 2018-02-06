@@ -14,3 +14,6 @@ export const Errors = {
   Password: '@@signup/PasswordError',
   RepeatPassword: '@@signup/RepeatPasswordError',
 }
+
+// api
+export const END_POINT = '/users'

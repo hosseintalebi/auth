@@ -3,8 +3,10 @@ import { validateEmail, validatePassword } from 'utils/validators'
 import { EMAIL_CHANGE, PASSWORD_CHANGE, SING_IN, Errors } from './constants'
 
 export const initialState = {
-  email: '',
-  password: '',
+  credentials: {
+    email: '',
+    password: '',
+  },
   errors: {
     [Errors.Email]: validateEmail(''),
     [Errors.Password]: validatePassword(''),
@@ -14,7 +16,10 @@ export const initialState = {
 function emailChange(state, payload) {
   return {
     ...state,
-    email: payload.value,
+    credentials: {
+      ...state.credentials,
+      email: payload.value,
+    },
     errors: {
       ...state.errors,
       [Errors.Email]: validateEmail(payload.value),
@@ -25,7 +30,10 @@ function emailChange(state, payload) {
 function passwordChange(state, payload) {
   return {
     ...state,
-    password: payload.value,
+    credentials: {
+      ...state.credentials,
+      password: payload.value,
+    },
     errors: {
       ...state.errors,
       [Errors.Password]: validatePassword(payload.value),

@@ -1,11 +1,9 @@
-import email$ from './signinEmail'
-import password$ from './signinPassword'
-import errors$ from './signinErrors'
-import submitted$ from './signinSubmitted'
+import errors$ from './errors'
+import submitted$ from './submitted'
+import credentials$ from './credentials'
 
 export {
-  email$,
-  password$,
   errors$,
   submitted$,
+  credentials$,
 }

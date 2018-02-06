@@ -8,3 +8,6 @@ export const Errors = {
   Email: '@@signin/EmailError',
   Password: '@@signin/PasswordError',
 }
+
+// api
+export const END_POINT = '/users/login'

@@ -36,7 +36,8 @@ class Signin extends Component {
     this.onClick()
   }
   render() {
-    const { email, password, errors, submitted } = this.props
+    const { credentials, errors, submitted } = this.props
+    const { email, password } = credentials
     return (
       <div className={styles.signinContainer}>
         <div className={styles.header}>Sign In</div>
@@ -58,7 +59,7 @@ class Signin extends Component {
               error={errors[Errors.Password]}
               showError={submitted}
             />
-            <Button text="Sign In" onClick={this.onClick} />
+            <Button text="Sign In" type="submit" />
             <div>
               Do not have an account? Click here to{' '}
               <Link to="/signup">sign up</Link>.

@@ -18,11 +18,13 @@ import {
 } from './constants'
 
 export const initialState = {
-  firstname: '',
-  lastname: '',
-  email: '',
-  password: '',
-  repeatPassword: '',
+  credentials: {
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    repeatPassword: '',
+  },
   errors: {
     [Errors.Firstname]: validateFirstname(''),
     [Errors.Lastname]: validateLastname(''),
@@ -35,7 +37,10 @@ export const initialState = {
 function firstnameChange(state, payload) {
   return {
     ...state,
-    firstname: payload.value,
+    credentials: {
+      ...state.credentials,
+      firstname: payload.value,
+    },
     errors: {
       ...state.errors,
       [Errors.Firstname]: validateFirstname(payload.value),
@@ -46,7 +51,10 @@ function firstnameChange(state, payload) {
 function lastnameChange(state, payload) {
   return {
     ...state,
-    lastname: payload.value,
+    credentials: {
+      ...state.credentials,
+      lastname: payload.value,
+    },
     errors: {
       ...state.errors,
       [Errors.Lastname]: validateLastname(payload.value),
@@ -57,7 +65,10 @@ function lastnameChange(state, payload) {
 function emailChange(state, payload) {
   return {
     ...state,
-    email: payload.value,
+    credentials: {
+      ...state.credentials,
+      email: payload.value,
+    },
     errors: {
       ...state.errors,
       [Errors.Email]: validateEmail(payload.value),
@@ -68,7 +79,10 @@ function emailChange(state, payload) {
 function passwordChange(state, payload) {
   return {
     ...state,
-    password: payload.value,
+    credentials: {
+      ...state.credentials,
+      password: payload.value,
+    },
     errors: {
       ...state.errors,
       [Errors.Password]: validatePassword(payload.value),
@@ -79,11 +93,14 @@ function passwordChange(state, payload) {
 function repeatPasswordChange(state, payload) {
   return {
     ...state,
-    repeatPassword: payload.value,
+    credentials: {
+      ...state.credentials,
+      repeatPassword: payload.value,
+    },
     errors: {
       ...state.errors,
       [Errors.RepeatPassword]: validateRepeatePassport(
-        state.password,
+        state.credentials.password,
         payload.value,
       ),
     },

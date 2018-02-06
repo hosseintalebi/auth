@@ -46,8 +46,6 @@ export function validatePassword(password) {
 export function validateRepeatePassport(password, repeatPassword) {
   if (_.size(repeatPassword) === 0) {
     return 'This field is required.'
-  } else if (_.size(repeatPassword) < MIN_CHAR_PASSWORD) {
-    return `Password should at least have ${MIN_CHAR_PASSWORD} characters.`
   } else if (password !== repeatPassword) {
     return 'Password and repeat password does not match.'
   }

@@ -1,14 +1,25 @@
-import { select, takeLatest } from 'redux-saga/effects'
+import _ from 'lodash'
+import { select, takeLatest, call } from 'redux-saga/effects'
 
-import { email$, password$ } from '../selectors/'
+import { credentials$, errors$ } from '../selectors/'
+
+import signinApi from '../api/signinUser'
 
 import { SING_IN } from '../constants'
 
 export function* signinUser(action) {
-  console.log(action)
-  const email = yield select(email$)
-  const password = yield select(password$)
-  console.log(email, password)
+  const credentials = yield select(credentials$)
+  const errors = yield select(errors$)
+  const hastError = yield call(checkError, errors)
+  if (!hastError) {
+    try {
+      const user = yield call(signinApi, credentials)
+    } catch (e) {}
+  }
+}
+
+export function checkError(errors) {
+  return _.reduce(errors, (acc, error) => acc || !!error, false)
 }
 
 export function* main() {

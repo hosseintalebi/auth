@@ -61,15 +61,8 @@ class Signup extends Component {
   }
 
   render() {
-    const {
-      firstname,
-      lastname,
-      email,
-      password,
-      repeatPassword,
-      errors,
-      submitted,
-    } = this.props
+    const { credentials, errors, submitted } = this.props
+    const { firstname, lastname, email, password, repeatPassword } = credentials
     return (
       <div className={styles.signupContainer}>
         <div className={styles.header}>Sign Up</div>
@@ -115,7 +108,7 @@ class Signup extends Component {
               error={errors[Errors.RepeatPassword]}
               showError={submitted}
             />
-            <Button text="Sign Up" onClick={this.onClick} />
+            <Button text="Sign Up" />
             <div>
               Already have an account? Click here to{' '}
               <Link to="/signin">sign in</Link>.

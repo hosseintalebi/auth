@@ -14,7 +14,6 @@ export default class Input extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   render() {
-    debugger
     const { value, placeholder, type, error, showError } = this.props
     const inputStyle = showError && error ? styles.inputWithError : styles.input
     const placeholderStyle = _.size(value) ? styles.placeholderTop : styles.placeholder

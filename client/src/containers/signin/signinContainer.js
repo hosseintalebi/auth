@@ -9,15 +9,13 @@ import {
 
 // selectors
 import {
-  email$,
-  password$,
+  credentials$,
   errors$,
   submitted$,
 } from 'data/signin/selectors'
 
 const mapStateToProps = (state, ownProps) => ({
-  email: email$(state),
-  password: password$(state),
+  credentials: credentials$(state),
   errors: errors$(state),
   submitted: submitted$(state),
 })
