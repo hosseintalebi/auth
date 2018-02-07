@@ -5,5 +5,12 @@ export default function postCall({ url, data }) {
     headers: new Headers({
       'Content-Type': 'application/json',
     }),
-  }).then(res => res.json())
+  })
+  .then(res => {
+    if (res.status === 200) {
+      return {data: res.json(), response: res}
+    } else {
+      return Promise.reject({response: res})
+    }
+  })
 }

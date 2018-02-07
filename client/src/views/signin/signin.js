@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Spinner from 'react-spinkit'
 // containers
 import signinContainer from 'containers/signin/signinContainer'
 
@@ -35,9 +36,11 @@ class Signin extends Component {
     event.preventDefault()
     this.onClick()
   }
+
   render() {
-    const { credentials, errors, submitted } = this.props
+    const { credentials, errors, submitted, isFetching, networkError } = this.props
     const { email, password } = credentials
+    debugger
     return (
       <div className={styles.signinContainer}>
         <div className={styles.header}>Sign In</div>
@@ -59,7 +62,14 @@ class Signin extends Component {
               error={errors[Errors.Password]}
               showError={submitted}
             />
-            <Button text="Sign In" type="submit" />
+            {isFetching ? (
+              <div className={styles.spinner}>
+                <Spinner name="double-bounce" />
+              </div>
+            ) : (
+              <Button text="Sign In" type="submit" />
+            )}
+            {networkError && <div className={styles.error}>{networkError}</div>}
             <div>
               Do not have an account? Click here to{' '}
               <Link to="/signup">sign up</Link>.

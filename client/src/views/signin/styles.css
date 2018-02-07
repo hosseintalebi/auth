@@ -22,3 +22,16 @@
   width: 100%;
   font-size: 1.1em;
 }
+
+:local(.spinner) {
+  display: flex;
+  justify-content: center;
+  margin: 20px 10px;
+}
+
+:local(.error) {
+  display: flex;
+  justify-content: center;
+  margin: 10px 10px 20px;
+  color: #ff5961;
+}
