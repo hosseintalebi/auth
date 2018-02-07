@@ -2,6 +2,7 @@ const _ = require('lodash')
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+const { SALT } = require('./constants')
 
 function isEmail(email) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -54,13 +55,13 @@ const UserSchema = new mongoose.Schema({
 UserSchema.methods.toJSON = function() {
   const user = this
   const userObject = user.toObject()
-  return _.pick(userObject, ['_id', 'email'])
+  return _.pick(userObject, ['_id', 'email', 'firstname', 'lastname'])
 }
 UserSchema.methods.generateAuthToken = function() {
   const user = this
   const access = 'auth'
   const token = jwt
-    .sign({ _id: user._id.toHexString(), access }, 'abc123')
+    .sign({ _id: user._id.toHexString(), access }, SALT)
     .toString()
   user.tokens.push({
     access,
@@ -75,7 +76,7 @@ UserSchema.statics.findByToken = function(token) {
   const User = this
   let decoded
   try {
-    decoded = jwt.verify(token, 'abc123')
+    decoded = jwt.verify(token, SALT)
   } catch (e) {
     return Promise.reject()
   }
