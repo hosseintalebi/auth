@@ -38,7 +38,7 @@ class Signin extends Component {
   }
 
   render() {
-    const { credentials, errors, submitted, isFetching, networkError } = this.props
+    const { credentials, errors, submitted, isFetching, authError } = this.props
     const { email, password } = credentials
     debugger
     return (
@@ -69,7 +69,7 @@ class Signin extends Component {
             ) : (
               <Button text="Sign In" type="submit" />
             )}
-            {networkError && <div className={styles.error}>{networkError}</div>}
+            {authError && <div className={styles.error}>{authError}</div>}
             <div>
               Do not have an account? Click here to{' '}
               <Link to="/signup">sign up</Link>.

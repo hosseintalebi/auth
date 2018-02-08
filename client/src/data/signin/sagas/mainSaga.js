@@ -5,11 +5,12 @@ import { select, takeLatest, call, put } from 'redux-saga/effects'
 import { credentials$, errors$ } from '../selectors/'
 
 // actions
-import { fetching, authFailed } from '../actions'
+import { fetching, clearSigninFlags } from '../actions'
+import { authFailure, authSuccess, clearAuthError  } from 'data/auth/actions'
 
 import signinApi from '../api/signinUser'
 
-import { SING_IN } from '../constants'
+import { SIGN_IN } from '../constants'
 
 export function* signinUser(action) {
   const credentials = yield select(credentials$)
@@ -18,12 +19,17 @@ export function* signinUser(action) {
   if (!hastError) {
     try {
       yield put(fetching())
-      const user = yield call(signinApi, credentials)
+      yield put(clearAuthError())
+      const {data: user, response} = yield call(signinApi, credentials)
+      sessionStorage.setItem('jwtToken', response.headers['x-auth'])
+      yield put(clearSigninFlags())
+      yield put(authSuccess({user}))
     } catch ({response}) {
-      if (response.status === 401) {
-        yield put(authFailed({error: 'Email or password are incorrect.'}))
+      yield put(clearSigninFlags())
+      if (response && response.status === 401) {
+        yield put(authFailure({error: 'Email or password are incorrect.'}))
       } else {
-        yield put(authFailed({error: 'There is a problem reaching to the server.'}))
+        yield put(authFailure({error: 'There is a problem with reaching to the server.'}))
       }
     }
   }
@@ -34,7 +40,7 @@ export function checkError(errors) {
 }
 
 export function* main() {
-  yield takeLatest(SING_IN, signinUser)
+  yield takeLatest(SIGN_IN, signinUser)
 }
 
 export default main

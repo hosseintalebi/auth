@@ -1,9 +1,9 @@
 // action types
 export const EMAIL_CHANGE = '@@signin/EMAIL_CHANGE'
 export const PASSWORD_CHANGE = '@@signin/PASSWORD_CHANGE'
-export const SING_IN = '@@signin/SING_IN'
+export const SIGN_IN = '@@signin/SIGN_IN'
 export const FETCHING = '@@signin/FETCHING'
-export const AUTH_FAILURE = '@@signin/AUTH_FAILURE'
+export const CLEAR_SIGNIN_FLAGS = '@@signin/CLEAR_SIGNIN_FLAGS'
 
 // Errors
 export const Errors = {

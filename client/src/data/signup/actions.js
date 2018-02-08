@@ -4,7 +4,7 @@ import {
   EMAIL_CHANGE,
   PASSWORD_CHANGE,
   REPEATE_PASSWORD_CHANGE,
-  SING_UP,
+  SIGN_UP,
 } from './constants'
 
 export function onChangeFirstName({ value }) {
@@ -44,6 +44,6 @@ export function onChangeRepeatPassword({ value }) {
 
 export function onSignup() {
   return {
-    type: SING_UP,
+    type: SIGN_UP,
   }
 }

@@ -11,15 +11,18 @@ import {
 import {
   credentials$,
   isFetching$,
-  networkError$,
   errors$,
   submitted$,
 } from 'data/signin/selectors'
 
+import {
+  authError$,
+} from 'data/auth/selectors'
+
 const mapStateToProps = (state, ownProps) => ({
   credentials: credentials$(state),
   isFetching: isFetching$(state),
-  networkError: networkError$(state),
+  authError: authError$(state),
   errors: errors$(state),
   submitted: submitted$(state),
 })

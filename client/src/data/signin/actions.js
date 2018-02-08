@@ -1,4 +1,10 @@
-import { PASSWORD_CHANGE, EMAIL_CHANGE, SING_IN, FETCHING, AUTH_FAILURE } from './constants'
+import {
+  PASSWORD_CHANGE,
+  EMAIL_CHANGE,
+  SIGN_IN,
+  FETCHING,
+  CLEAR_SIGNIN_FLAGS,
+} from './constants'
 
 export function onChangePassowrd({ value }) {
   return {
@@ -16,7 +22,7 @@ export function onChangeEmail({ value }) {
 
 export function onSignin() {
   return {
-    type: SING_IN,
+    type: SIGN_IN,
   }
 }
 
@@ -26,9 +32,8 @@ export function fetching() {
   }
 }
 
-export function authFailed(payload) {
+export function clearSigninFlags() {
   return {
-    type: AUTH_FAILURE,
-    payload,
+    type: CLEAR_SIGNIN_FLAGS,
   }
 }

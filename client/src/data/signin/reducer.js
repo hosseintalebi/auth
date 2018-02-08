@@ -1,6 +1,13 @@
 import createReducer from 'utils/createReducer'
 import { validateEmail, validatePassword } from 'utils/validators'
-import { EMAIL_CHANGE, PASSWORD_CHANGE, SING_IN, FETCHING, AUTH_FAILURE, Errors } from './constants'
+import {
+  EMAIL_CHANGE,
+  PASSWORD_CHANGE,
+  SIGN_IN,
+  FETCHING,
+  CLEAR_SIGNIN_FLAGS,
+  Errors,
+} from './constants'
 
 export const initialState = {
   credentials: {
@@ -8,7 +15,6 @@ export const initialState = {
     password: '',
   },
   isFetching: false,
-  networkError: null,
   errors: {
     [Errors.Email]: validateEmail(''),
     [Errors.Password]: validatePassword(''),
@@ -54,14 +60,12 @@ function fetching(state) {
   return {
     ...state,
     isFetching: true,
-    networkError: null,
   }
 }
 
-function failure(state, payload) {
+function clearSigninFlags(state, payload) {
   return {
     ...state,
-    networkError: payload.error,
     isFetching: false,
     submitted: false,
   }
@@ -70,7 +74,7 @@ function failure(state, payload) {
 export default createReducer(initialState, {
   [EMAIL_CHANGE]: emailChange,
   [PASSWORD_CHANGE]: passwordChange,
-  [SING_IN]: signIn,
+  [SIGN_IN]: signIn,
   [FETCHING]: fetching,
-  [AUTH_FAILURE]: failure,
+  [CLEAR_SIGNIN_FLAGS]: clearSigninFlags,
 })

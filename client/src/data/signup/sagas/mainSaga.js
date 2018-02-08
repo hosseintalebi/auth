@@ -3,7 +3,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects'
 import { credentials$, errors$ } from '../selectors'
 import signupApi from '../api/signupUser'
 
-import { SING_UP } from '../constants'
+import { SIGN_UP } from '../constants'
 
 export function* signupUser(action) {
   const credentials = yield select(credentials$)
@@ -21,7 +21,7 @@ export function checkError(errors) {
 }
 
 export function* main() {
-  yield takeLatest(SING_UP, signupUser)
+  yield takeLatest(SIGN_UP, signupUser)
 }
 
 export default main

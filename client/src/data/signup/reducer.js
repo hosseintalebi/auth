@@ -13,7 +13,7 @@ import {
   EMAIL_CHANGE,
   PASSWORD_CHANGE,
   REPEATE_PASSWORD_CHANGE,
-  SING_UP,
+  SIGN_UP,
   Errors,
 } from './constants'
 
@@ -120,5 +120,5 @@ export default createReducer(initialState, {
   [EMAIL_CHANGE]: emailChange,
   [PASSWORD_CHANGE]: passwordChange,
   [REPEATE_PASSWORD_CHANGE]: repeatPasswordChange,
-  [SING_UP]: signUp,
+  [SIGN_UP]: signUp,
 })
